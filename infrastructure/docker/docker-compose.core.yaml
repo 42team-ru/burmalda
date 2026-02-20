@@ -1,0 +1,19 @@
+services:
+    postgres:
+        image: postgres:latest
+        environment:
+            POSTGRES_USER: ${DB_USER:-postgres}
+            POSTGRES_PASSWORD: ${DB_PASSWORD:-postgres}
+            POSTGRES_DB: ${DB_NAME:-postgres}
+        ports:
+            - "${DB_PORT:-5432}:5432"
+        volumes:
+            - my_pg_data:/var/lib/postgresql
+        healthcheck:
+            test: [ "CMD-SHELL", "pg_isready -U ${DB_USER:-postgres} -d ${DB_NAME:-postgres}" ]
+            interval: 10s
+            timeout: 5s
+            retries: 20
+
+volumes:
+    my_pg_data:

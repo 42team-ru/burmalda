@@ -8,6 +8,7 @@ dependencies {
     implementation(libs.spring.boot.starter.data.jpa)
     implementation(libs.spring.boot.starter.flyway)
     implementation(libs.lombok)
+    annotationProcessor(libs.lombok)
 
     implementation(libs.flyway.database.postgresql)
 

@@ -9,5 +9,7 @@ dependencies {
     implementation(libs.spring.boot.starter.flyway)
     implementation(libs.postgresql)
 
+    implementation(libs.flyway.database.postgresql)
+
     testImplementation(libs.spring.boot.starter.test)
 }

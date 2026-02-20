@@ -1,6 +1,21 @@
 spring:
-  application:
-    name: core
+    application:
+        name: core
+    datasource:
+        url: jdbc:postgresql://localhost:5432/postgres
+        username: postgres
+        password: postgres
+        driver-class-name: org.postgresql.Driver
+
+    jpa:
+        hibernate:
+            ddl-auto: validate
+
+    flyway:
+        locations: classpath:db/migration
+        enabled: true
+
+
 
 server:
-  port: 8080
+    port: 8080
